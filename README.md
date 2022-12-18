@@ -7,9 +7,11 @@ Roboty i knefle
 Project made with unity.
 
 ## Authors and acknowledgment
+
 https://github.com/jakub22222 <br />
 https://gitlab.aei.polsl.pl/mategor195 <br />
 https://github.com/Quecheri <br />
+
 
 
 ## License
