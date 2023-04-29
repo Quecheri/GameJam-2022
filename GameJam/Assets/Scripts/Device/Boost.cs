@@ -6,7 +6,8 @@ using UnityEngine.UIElements;
 
 public class Boost : Terminal
 {
-    int previousEvent=0;
+    static int previousEvent =0;
+    int myEvent =0;
     int numberOfEvents = 4;
     float remainingTime = 5f;
     bool isActive = false;
@@ -31,19 +32,22 @@ public class Boost : Terminal
         }
         else if (previousEvent == 2)
         {
-            GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<KeyboardControlls>().movementSpeed = 15f;
-            GameObject.FindGameObjectsWithTag("Player")[1].GetComponent<KeyboardControlls>().movementSpeed = 15f;
+            GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<KeyboardControlls>().movementSpeed += 5f;
+            GameObject.FindGameObjectsWithTag("Player")[1].GetComponent<KeyboardControlls>().movementSpeed += 5f;
             popTMP.text = "Additional Speed";
             Debug.Log(popUp);
 
         }
         else if (previousEvent == 3)
         {
-            GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<KeyboardControlls>().movementSpeed = 5f;
-            GameObject.FindGameObjectsWithTag("Player")[1].GetComponent<KeyboardControlls>().movementSpeed = 5f;
+            GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<KeyboardControlls>().movementSpeed -= 5f;
+            GameObject.FindGameObjectsWithTag("Player")[1].GetComponent<KeyboardControlls>().movementSpeed -= 5f;
             popTMP.text = "Lowered Speed";
             Debug.Log(popUp);
         }
+        myEvent = previousEvent;
+        previousEvent++;
+        if (previousEvent == numberOfEvents) previousEvent = 0;
 
     }
 
@@ -60,18 +64,25 @@ public class Boost : Terminal
             {
                 popUp.enabled = false;
                 //GetComponent<SpriteRenderer>().sprite = depoweredSprite;
-                if (previousEvent == 0)
+                if (myEvent == 0)
                 {
-                    GameObject.FindGameObjectWithTag("GlobalLight").GetComponent<Light2D>().intensity = 0.1f;
+                    GameObject.FindGameObjectWithTag("GlobalLight").GetComponent<Light2D>().intensity = 0.01f;
                 }
-                else if (previousEvent == 2 || previousEvent == 3)
+                else if (myEvent == 2 )
                 {
-                    GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<KeyboardControlls>().movementSpeed = 10f;
-                    GameObject.FindGameObjectsWithTag("Player")[1].GetComponent<KeyboardControlls>().movementSpeed = 10f;
+                    GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<KeyboardControlls>().movementSpeed -= 5f;
+                    GameObject.FindGameObjectsWithTag("Player")[1].GetComponent<KeyboardControlls>().movementSpeed -= 5f;
 
                 }
-                previousEvent++;
-                if (previousEvent == numberOfEvents) previousEvent = 0;
+                else if ( myEvent == 3)
+                {
+                    GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<KeyboardControlls>().movementSpeed += 5f;
+                    GameObject.FindGameObjectsWithTag("Player")[1].GetComponent<KeyboardControlls>().movementSpeed += 5f;
+
+                }
+
+
+                isActive = false;
             }
         }
     }

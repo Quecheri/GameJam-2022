@@ -11,6 +11,7 @@ public class IActiveDevice : MonoBehaviour
     public UnityEvent isNotPoweredEvent;
     public UnityEvent OnPlayerEntry;
     public UnityEvent OnPlayerLeave;
+    protected bool isActive = false;
 
     protected int powerLevel;
     [SerializeField] protected int maxPowerLevel;
@@ -26,6 +27,12 @@ public class IActiveDevice : MonoBehaviour
     public void Update()
     {
 
+    }
+
+
+    public bool getIsActive()
+    {
+        return isActive;
     }
 
     public int getPowerLelvel()

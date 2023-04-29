@@ -5,7 +5,7 @@ using UnityEngine;
 public class Lever : IActiveDevice
 {
 
-    bool isActive = false;
+   
 
     override public void ActivateDevice()
     {

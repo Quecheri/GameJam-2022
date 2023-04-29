@@ -520,6 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionFrefab: {fileID: 2967109887543229638, guid: cc9d588fa28ad6643b723b1bd1fbd740, type: 3}
+  playerPopUp: {fileID: 6692645050224326806}
 --- !u!61 &3603242097354603457
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -834,6 +835,11 @@ PrefabInstance:
 --- !u!223 &6692645050096637465 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 7082421116121445596, guid: d0ec64781e852404b9f5d2900ef16278, type: 3}
+  m_PrefabInstance: {fileID: 4515101952894149317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6692645050224326806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7082421115993725523, guid: d0ec64781e852404b9f5d2900ef16278, type: 3}
   m_PrefabInstance: {fileID: 4515101952894149317}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6692645050224326807 stripped

@@ -135,8 +135,12 @@ public class PlayerEventHandler : MonoBehaviour
             
             numberOfContacts++;
             interactableObject = other.gameObject;
-            interactableObject.GetComponent<IActiveDevice>().OnPlayerEntry?.Invoke();
-            ourPopUp.enabled = true;
+            if(!interactableObject.GetComponent<IActiveDevice>().getIsActive())
+            {
+                interactableObject.GetComponent<IActiveDevice>().OnPlayerEntry?.Invoke();
+                ourPopUp.enabled = true;
+            }
+
         }
         
     }
